@@ -2,10 +2,6 @@ const url = $request.url;
 const method = $request.method;
 const notifyTitle = "抢票插件";
 
-if (method !== "POST") {
-    $done({});
-}
-
 if (!$response.body) {
     $done({});
 }
@@ -24,9 +20,7 @@ if (url.indexOf('queryDayStockMargin') != -1) {
         body
     });
   }
-}
-
-if (url.indexOf('findStockInfo') != -1) {
+} else if (url.indexOf('findStockInfo') != -1) {
   let body = JSON.parse($response.body);
   if (!body.data || body.code != "0") {
       $notification.post(notifyTitle, url, "data字段错误");
@@ -41,10 +35,12 @@ if (url.indexOf('findStockInfo') != -1) {
         body
     });
   }
+} else {
+    $done({});
 }
 
 console.log(url);
 console.log(`body:${$response.body}`);
-$done({});
+
 
 
