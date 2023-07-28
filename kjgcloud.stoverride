@@ -1,0 +1,16 @@
+name: 科技馆抢票
+desc: 需iOS15
+
+http:
+  mitm:
+    - "kjgcloud.hstm.org.cn"
+  script:
+    - match: ^https://kjgcloud.hstm.org.cn/ticket
+      name: kjgcloud
+      type: response
+      require-body: true
+      timeout: 10
+script-providers:
+  kjgcloud:
+    url: https://raw.githubusercontent.com/marskid/stash/master/js/kjgcloud-findStockInfo.js
+    interval: 86400
