@@ -17,7 +17,8 @@ if (url.indexOf('queryDayStockMargin') != -1) {
       i.lastCount = 1000;
     });
     body = JSON.stringify(body);
-    console.log(`body:${$response.body}`);
+    console.log(`url:${url}`);
+    console.log(`body:${body}`);
     $done({
         body
     });
@@ -32,7 +33,8 @@ if (url.indexOf('queryDayStockMargin') != -1) {
       i.usedCount = 100;
     });
     body = JSON.stringify(body);
-    console.log(`body:${$response.body}`);
+    console.log(`url:${url}`);
+    console.log(`body:${body}`);
     $done({
         body
     });
@@ -41,7 +43,7 @@ if (url.indexOf('queryDayStockMargin') != -1) {
     $done({});
 }
 
-console.log(url);
+console.log(`url:${url}`);
 console.log(`body:${$response.body}`);
 
 
