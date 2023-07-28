@@ -25,7 +25,8 @@ if (!body.data || body.code != "0") {
     i.stockCount = 1000;
     i.usedCount = 100;
   });
+  body = JSON.stringify(body);
   $done({
-    body
+      body
   });
 }
