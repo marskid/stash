@@ -12,7 +12,9 @@ if (url.indexOf('queryDayStockMargin') != -1) {
       $notification.post(notifyTitle, url, "data字段错误");
   } else {
     body.data.forEach(i => {
+      i.canOrder = true;
       i.canOrderStatus = 3;
+      i.lastCount = 1000;
     });
     body = JSON.stringify(body);
     console.log(`body:${$response.body}`);
