@@ -20,9 +20,9 @@ if (url.indexOf('queryDayStockMargin') != -1) {
                 lastStockId = parseInt(itemStockId);
             }
         }
-        if (lastStockId != 0) {
+        if (!i.itemStockId && lastStockId != 0) {
             let a = --lastStockId,b = --lastStockId;
-            i.itemStockId = `${a},${b},`;
+            i.itemStockId = `${b},${a},`;
         }
         i.canOrder = true;
         i.canOrderStatus = 3;
