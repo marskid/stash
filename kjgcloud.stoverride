@@ -5,12 +5,12 @@ http:
   mitm:
     - "kjgcloud.hstm.org.cn"
   script:
-    - match: ^https://kjgcloud.hstm.org.cn/ticket
+    - match: ^https:\/\/kjgcloud\.hstm\.org\.cn\/ticket\/wx\/wxSale\/findStockInfo$
       name: kjgcloud
       type: response
       require-body: true
       timeout: 10
 script-providers:
   kjgcloud:
-    url: https://raw.githubusercontent.com/marskid/stash/master/js/kjgcloud-findStockInfo.js
+    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud-findStockInfo.js
     interval: 86400
