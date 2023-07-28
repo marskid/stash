@@ -12,5 +12,5 @@ http:
       timeout: 10
 script-providers:
   kjgcloud:
-    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud-findStockInfo.js?t=adf07a5b65a212c13b88ec9272f00d530e86ced8
+    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=aebb3f6458c22f5fd5e52b213d8de70df4cbb6ab
     interval: 86400
