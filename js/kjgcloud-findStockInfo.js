@@ -7,14 +7,26 @@ if (!$response.body) {
 }
 
 if (url.indexOf('queryDayStockMargin') != -1) {
-  let body = JSON.parse($response.body);
-  if (!body.data || body.code != "0") {
+    let body = JSON.parse($response.body);
+    if (!body.data || body.code != "0") {
       $notification.post(notifyTitle, url, "data字段错误");
-  } else {
-    body.data.forEach(i => {
-      i.canOrder = true;
-      i.canOrderStatus = 3;
-      i.lastCount = 1000;
+    } else {
+    let lastStockId = 0;
+    body.data.forEach((i,j) => {
+        let next = body.data[j+1] || {};
+        if (i.canOrder == true && i.itemStockId && next.canOrder == false) {
+            let itemStockId = i.itemStockId.split(',')[0];
+            if (itemStockId) {
+                lastStockId = parseInt(itemStockId);
+            }
+        }
+        if (lastStockId != 0) {
+            let a = --lastStockId,b = --lastStockId;
+            i.itemStockId = `${a},${b},`;
+        }
+        i.canOrder = true;
+        i.canOrderStatus = 3;
+        i.lastCount = 1000;
     });
     body = JSON.stringify(body);
     console.log(`url:${url}`);
@@ -22,15 +34,15 @@ if (url.indexOf('queryDayStockMargin') != -1) {
     $done({
         body
     });
-  }
+    }
 } else if (url.indexOf('findStockInfo') != -1) {
-  let body = JSON.parse($response.body);
-  if (!body.data || body.code != "0") {
+    let body = JSON.parse($response.body);
+    if (!body.data || body.code != "0") {
       $notification.post(notifyTitle, url, "data字段错误");
-  } else {
+    } else {
     body.data.forEach(i => {
-      i.stockCount = 1000;
-      i.usedCount = 100;
+        i.stockCount = 1000;
+        i.usedCount = 100;
     });
     body = JSON.stringify(body);
     console.log(`url:${url}`);
@@ -38,7 +50,7 @@ if (url.indexOf('queryDayStockMargin') != -1) {
     $done({
         body
     });
-  }
+    }
 } else {
     $done({});
 }
