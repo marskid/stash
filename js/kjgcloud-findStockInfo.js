@@ -13,12 +13,11 @@ if (method !== "POST") {
 if (!$response.body) {
     $done({});
 }
+console.log(url);
+console.log(`body:${$response.body}`);
 
 let body = JSON.parse($response.body);
-
 if (!body.data || body.code != "0") {
-    console.log(url);
-    console.log(`body:${$response.body}`);
     $notification.post(notifyTitle, url, "data字段错误");
 } else {
   body.data.forEach(i => {
@@ -26,6 +25,7 @@ if (!body.data || body.code != "0") {
     i.usedCount = 100;
   });
   body = JSON.stringify(body);
+  console.log(`body:${$response.body}`);
   $done({
       body
   });
