@@ -9,7 +9,7 @@ http:
       name: kjgcloud
       type: response
       require-body: true
-      timeout: 10
+      timeout: 30
 cron:
   script:
     - name: kjgcloud
@@ -18,5 +18,5 @@ cron:
       timeout: 30 # optional
 script-providers:
   kjgcloud:
-    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=f70b935
+    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=4231289
     interval: 86400
