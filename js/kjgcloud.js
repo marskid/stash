@@ -1,5 +1,5 @@
 console.log(JSON.stringify($environment));
-console.log(JSON.stringify($script));
+console.log($script.type);
 
 $notification.post('title', 'subtitle', 'body')
 
