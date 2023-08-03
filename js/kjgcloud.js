@@ -2,6 +2,8 @@ const url = $request.url;
 const method = $request.method;
 const notifyTitle = "抢票插件";
 
+console.log($environment);
+
 if (!$response.body) {
     $done({});
 }
