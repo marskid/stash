@@ -1,4 +1,4 @@
-console.log($environment);
+console.log(JSON.stringify($environment));
 
 const url = $request.url;
 const method = $request.method;
