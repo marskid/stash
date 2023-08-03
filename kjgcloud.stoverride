@@ -5,18 +5,12 @@ http:
   mitm:
     - "kjgcloud.hstm.org.cn"
   script:
-    - match: ^https:\/\/kjgcloud\.hstm\.org\.cn\/ticket\/wx\/wxSale\/(findStockInfo|queryDayStockMargin|newCreateOrder)$
+    - match: ^https:\/\/kjgcloud\.hstm\.org\.cn\/ticket\/wx\/wxSale\/(findStockInfo|queryDayStockMargin)$
       name: kjgcloud
       type: response
       require-body: true
-      timeout: 30
-cron:
-  script:
-    - name: kjgcloud
-      cron: '*/1 * * * *'
-      argument: ''
-      timeout: 30 # optional
+      timeout: 10
 script-providers:
   kjgcloud:
-    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=4231289
+    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=632ec95
     interval: 86400
