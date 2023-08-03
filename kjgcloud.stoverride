@@ -18,5 +18,5 @@ cron:
       timeout: 30 # optional
 script-providers:
   kjgcloud:
-    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=8ccf2fc320b6419ade225587c2e43127af0087f9
+    url: https://raw.githubusercontent.com/marskid/stash/main/js/kjgcloud.js?t=ffeaf8b
     interval: 86400
