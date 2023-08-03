@@ -1,4 +1,7 @@
 console.log(JSON.stringify($environment));
+console.log(JSON.stringify($script));
+
+$notification.post('title', 'subtitle', 'body')
 
 const url = $request.url;
 const method = $request.method;
